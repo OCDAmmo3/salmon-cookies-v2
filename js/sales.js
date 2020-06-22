@@ -55,3 +55,16 @@ var Paris = {
   cookiesSold: [],
 }
 Paris.setCusPerHour();
+
+var Lima = {
+  minCust: 2,
+  maxCust: 16,
+  avgCook: 4.6,
+  custPerHour: 0,
+  setCusPerHour: function() {
+    this.cusPerHour = randomNumber(this.minCust, this.maxCust) + ' customers.';
+    console.log(this.cusPerHour);
+  },
+  cookiesSold: [],
+}
+Lima.setCusPerHour();
