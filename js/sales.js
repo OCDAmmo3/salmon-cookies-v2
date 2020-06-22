@@ -16,3 +16,16 @@ var Seattle = {
   cookiesSold: [],
 };
 Seattle.setCusPerHour();
+
+var Tokyo = {
+  minCust: 3,
+  maxCust: 24,
+  avgCook: 1.2,
+  custPerHour: 0,
+  setCusPerHour: function() {
+    this.cusPerHour = randomNumber(this.minCust, this.maxCust) + ' customers.';
+    console.log(this.cusPerHour);
+  },
+  cookiesSold: [],
+};
+Tokyo.setCusPerHour();
