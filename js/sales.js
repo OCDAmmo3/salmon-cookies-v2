@@ -68,3 +68,17 @@ var Lima = {
   cookiesSold: [],
 }
 Lima.setCusPerHour();
+
+var root = document.getElementById('root');
+
+var seattleUl = document.createElement('ul');
+seattleUl.setAttribute('id', 'seattle')
+for(var i = 0; i < storeHours.length - 1; i++) {
+  var li = document.createElement('li');
+  li.textContent = 'At ' + storeHours[i] + ' we sold ' + Seattle.cookiesSold[i] + '.';
+  seattleUl.appendChild(li);
+}
+var totalSeattle = document.createElement('li');
+totalSeattle.textContent = 'Total cookies sold: ' + Seattle.totalSold;
+seattleUl.appendChild(totalSeattle);
+root.appendChild(seattleUl);
