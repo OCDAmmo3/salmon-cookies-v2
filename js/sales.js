@@ -82,3 +82,51 @@ var totalSeattle = document.createElement('li');
 totalSeattle.textContent = 'Total cookies sold: ' + Seattle.totalSold;
 seattleUl.appendChild(totalSeattle);
 root.appendChild(seattleUl);
+
+var tokyoUl = document.createElement('ul');
+tokyoUl.setAttribute('id', 'tokyo')
+for(var i = 0; i < storeHours.length - 1; i++) {
+  var li = document.createElement('li');
+  li.textContent = 'At ' + storeHours[i] + ' we sold ' + Tokyo.cookiesSold[i] + '.';
+  tokyoUl.appendChild(li);
+}
+var totalTokyo = document.createElement('li');
+totalTokyo.textContent = 'Total cookies sold: ' + Tokyo.totalSold;
+tokyoUl.appendChild(totalTokyo);
+root.appendChild(tokyoUl);
+
+var dubaiUl = document.createElement('ul');
+dubaiUl.setAttribute('id', 'dubai')
+for(var i = 0; i < storeHours.length - 1; i++) {
+  var li = document.createElement('li');
+  li.textContent = 'At ' + storeHours[i] + ' we sold ' + Dubai.cookiesSold[i] + '.';
+  dubaiUl.appendChild(li);
+}
+var totalDubai = document.createElement('li');
+totalDubai.textContent = 'Total cookies sold: ' + Dubai.totalSold;
+dubaiUl.appendChild(totalDubai);
+root.appendChild(dubaiUl);
+
+var parisUl = document.createElement('ul');
+parisUl.setAttribute('id', 'paris')
+for(var i = 0; i < storeHours.length - 1; i++) {
+  var li = document.createElement('li');
+  li.textContent = 'At ' + storeHours[i] + ' we sold ' + Paris.cookiesSold[i] + '.';
+  parisUl.appendChild(li);
+}
+var totalParis = document.createElement('li');
+totalParis.textContent = 'Total cookies sold: ' + Paris.totalSold;
+parisUl.appendChild(totalParis);
+root.appendChild(parisUl);
+
+var limaUl = document.createElement('ul');
+limaUl.setAttribute('id', 'lima')
+for(var i = 0; i < storeHours.length - 1; i++) {
+  var li = document.createElement('li');
+  li.textContent = 'At ' + storeHours[i] + ' we sold ' + Lima.cookiesSold[i] + '.';
+  limaUl.appendChild(li);
+}
+var totalLima = document.createElement('li');
+totalLima.textContent = 'Total cookies sold: ' + Lima.totalSold;
+limaUl.appendChild(totalLima);
+root.appendChild(limaUl);
