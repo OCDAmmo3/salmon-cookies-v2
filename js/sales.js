@@ -29,3 +29,16 @@ var Tokyo = {
   cookiesSold: [],
 };
 Tokyo.setCusPerHour();
+
+var Dubai = {
+  minCust: 11,
+  maxCust: 38,
+  avgCook: 3.7,
+  custPerHour: 0,
+  setCusPerHour: function() {
+    this.cusPerHour = randomNumber(this.minCust, this.maxCust) + ' customers.';
+    console.log(this.cusPerHour);
+  },
+  cookiesSold: [],
+}
+Dubai.setCusPerHour();
