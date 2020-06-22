@@ -42,3 +42,16 @@ var Dubai = {
   cookiesSold: [],
 }
 Dubai.setCusPerHour();
+
+var Paris = {
+  minCust: 20,
+  maxCust: 38,
+  avgCook: 2.3,
+  custPerHour: 0,
+  setCusPerHour: function() {
+    this.cusPerHour = randomNumber(this.minCust, this.maxCust) + ' customers.';
+    console.log(this.cusPerHour);
+  },
+  cookiesSold: [],
+}
+Paris.setCusPerHour();
