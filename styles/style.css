@@ -1,0 +1,110 @@
+/* Colors include: #BC543B 'Old Rose', #C6915D 'Peru', #A46846 'Sienna', #36342C 'Black', #D0C9C2 'Silver' */
+/* Font-family for text: font-family: 'Tillana', cursive; */
+/* Font-family for headings: font-family: 'Lobster', cursive; */
+
+body {
+  background-color: #D0C9C2;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Tillana', cursive;
+  color: #36342C;
+}
+
+strong {
+  font-weight: 500;
+  color: black;
+}
+
+header {
+  min-height: 100px;
+  background-color: #BC543B;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#root div {
+  font-size: 1.2rem;
+  margin: 15px 20px;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+#information {
+  background-color: #A46846;
+  padding: 15px;
+  border-radius: 15px;
+}
+
+aside {
+  width: 49%;
+  box-sizing: border-box;
+  float: left;
+  background-color: #C6915D;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+aside p {
+  margin-bottom: 10px;
+}
+
+#left {
+  margin-right: .7%;
+}
+
+#right {
+  margin-left: .7%;
+}
+
+img {
+  width: 200px;
+}
+
+#salmon-image:hover {
+  cursor: default;
+}
+
+div.sales-sheet {
+  background-color: #A46846;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid #36342C;
+  box-shadow: 10px 10px 20px #36342C;
+}
+
+ul.sales-sheet {
+  background-color: #C6915D;
+  padding: 15px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 1px 1px 10px #36342C;
+}
+
+ul.sales-sheet li {
+  line-height: 1.1;
+}
