@@ -89,22 +89,32 @@ img {
   cursor: default;
 }
 
-div.sales-sheet {
+table {
   background-color: #A46846;
   padding: 15px;
   border-radius: 15px;
-  border: 2px solid #36342C;
   box-shadow: 10px 10px 20px #36342C;
 }
 
-ul.sales-sheet {
-  background-color: #C6915D;
+table * {
   padding: 15px;
-  border-radius: 10px;
-  width: 350px;
-  box-shadow: 1px 1px 10px #36342C;
 }
 
-ul.sales-sheet li {
-  line-height: 1.1;
+table tfoot {
+  padding: 20px;
+}
+
+th {
+  font-weight: 500;
+}
+
+tr {
+  background-color: #C6915D;
+  padding: 15px;
+  width: 350px;
+  font-weight: 500;
+}
+
+tr td {
+  font-weight: normal;
 }
