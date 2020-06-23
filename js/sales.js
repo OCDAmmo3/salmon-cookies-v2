@@ -1,6 +1,6 @@
 'use strict';
 
-var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', 'Total'];
+var storeHours = ['6am', '7am', '8am', '9am', '10am', '11am', '12am', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm'];
 
 var root = document.getElementById('root');
 
@@ -31,60 +31,98 @@ function Store(locationId, location, minCust, maxCust, avgCook) {
     return cookies;
   };
   this.fillCookies = function() {
-    for(var i = 0; i < storeHours.length - 1; i++) {
+    for(var i = 0; i < storeHours.length; i++) {
       this.setCookiesSold();
     }
-  }
-  this.createUl = function() {
-
-    var newDiv = document.createElement('div');
-    newDiv.setAttribute('id', this.locationId);
-    newDiv.setAttribute('class', 'sales-sheet');
-    var newH2 = document.createElement('h2');
-    newH2.textContent = this.location;
-    newDiv.appendChild(newH2);
-
-    var newUl = document.createElement('ul');
-    newUl.setAttribute('id', this.locationId);
-    newUl.setAttribute('class', 'sales-sheet');
-
-    for (var i = 0; i < storeHours.length - 1; i++) {
-      var li = document.createElement('li');
-      li.textContent = `${storeHours[i]}: ${this.cookiesSold[i]} cookies sold`;
-      newUl.appendChild(li);
-    }
-
-    var totalHere = document.createElement('li');
-    var bigText = document.createElement('strong');
-    bigText.textContent = `Total cookies sold in ${this.location}: ${this.totalCookies()}`;
-    totalHere.appendChild(bigText);
-    newUl.appendChild(totalHere);
-    newDiv.appendChild(newUl);
-    root.appendChild(newDiv);
-
-  }
+  };
 }
 
 var Seattle = new Store('seattle', 'Seattle', 23, 65, 6.3);
-Seattle.fillCookies();
-Seattle.createUl();
-
 var Tokyo = new Store('tokyo', 'Tokyo', 3, 24, 1.2);
-Tokyo.fillCookies();
-Tokyo.createUl();
-
 var Dubai = new Store('dubai', 'Dubai', 11, 38, 3.7);
-Dubai.fillCookies();
-Dubai.createUl();
-
 var Paris = new Store('paris', 'Paris', 20, 38, 2.3);
-Paris.fillCookies();
-Paris.createUl();
-
 var Lima = new Store('lima', 'Lima', 2, 16, 4.6);
-Lima.fillCookies();
-Lima.createUl();
-
 var HongKong = new Store('hong-kong', 'Hong Kong', 14, 72, 8.2);
-HongKong.fillCookies();
-HongKong.createUl();
+
+var stores = [Seattle, Tokyo, Dubai, Paris, Lima, HongKong];
+
+stores.forEach(store => {
+  store.fillCookies();
+});
+
+function createTable() {
+
+  // Creating table
+  var newTable = document.createElement('table');
+  root.appendChild(newTable);
+  
+  // Creating table header and adding word "Locations" as a staple above the various locations
+  var tableHeader = document.createElement('thead');
+  newTable.appendChild(tableHeader);
+  var heading = document.createElement('th');
+  heading.textContent = 'Locations';
+  tableHeader.appendChild(heading);
+
+  // Creating table body
+  var tableBody = document.createElement('tbody');
+  newTable.appendChild(tableBody);
+
+  // Creating table footer for totals
+  var tableFooter = document.createElement('tfoot');
+  tableFooter.textContent = 'Hourly Totals';
+  newTable.appendChild(tableFooter);
+
+  // Adding in every hour from store hours array as a table heading
+  for(var i = 0; i < storeHours.length; i++) {
+    var th = document.createElement('th');
+    th.textContent = storeHours[i];
+    tableHeader.appendChild(th);
+  }
+
+  // Adding total heading for end of each day
+  var totalHeading = document.createElement('th');
+  totalHeading.textContent = 'Total';
+  tableHeader.appendChild(totalHeading);
+
+  // Adding sales numbers for each store
+  for(var i = 0; i < stores.length; i++) {
+    var tr = document.createElement('tr');
+    tr.setAttribute('id', stores[i].locationId);
+    tr.textContent = stores[i].location;
+    tableBody.appendChild(tr);
+    // Adding sales for each hour at each store
+    for(var j = 0; j < storeHours.length; j++) {
+      var td = document.createElement('td');
+      td.textContent = stores[i].cookiesSold[j];
+      tr.appendChild(td);
+    }
+    // Adding total daily sales for each store
+    var dailyTotal = document.createElement('td');
+    dailyTotal.textContent = stores[i].totalCookies();
+    tr.appendChild(dailyTotal);
+  }
+
+  // Adding in totals for each hour in footer
+  for(var i = 0; i < storeHours.length; i++) {
+    var total = 0;
+    var totalFoot = document.createElement('td');
+    console.log('first');
+    for(var j = 0; j < stores.length; j++) {
+      total = total + stores[j].cookiesSold[i];
+      console.log('second');
+    }
+    totalFoot.textContent = total;
+    tableFooter.appendChild(totalFoot);
+  }
+
+  // Adding in final total for each store and every hour
+  var totalTotal = document.createElement('td');
+  var finalTotal = 0;
+  for(var i = 0; i < stores.length; i++) {
+    finalTotal = finalTotal + stores[i].totalCookies();
+  }
+  totalTotal.textContent = finalTotal;
+  tableFooter.appendChild(totalTotal);
+}
+
+createTable();
