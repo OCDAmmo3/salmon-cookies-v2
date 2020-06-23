@@ -50,13 +50,13 @@ function Store(locationId, location, minCust, maxCust, avgCook) {
 
     for (var i = 0; i < storeHours.length - 1; i++) {
       var li = document.createElement('li');
-      li.textContent = storeHours[i] + ': ' + this.cookiesSold[i] + ' cookies sold';
+      li.textContent = `${storeHours[i]}: ${this.cookiesSold[i]} cookies sold`;
       newUl.appendChild(li);
     }
 
     var totalHere = document.createElement('li');
     var bigText = document.createElement('strong');
-    bigText.textContent = 'Total cookies sold in ' + this.location + ': ' + this.totalCookies();
+    bigText.textContent = `Total cookies sold in ${this.location}: ${this.totalCookies()}`;
     totalHere.appendChild(bigText);
     newUl.appendChild(totalHere);
     newDiv.appendChild(newUl);
