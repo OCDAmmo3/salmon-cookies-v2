@@ -8,7 +8,8 @@ function randomNumber(minHourCus, maxHourCus) {
   return Math.floor(Math.random() * (maxHourCus - minHourCus + 1)) + minHourCus;
 }
 
-function Store(location, minCust, maxCust, avgCook) {
+function Store(locationId, location, minCust, maxCust, avgCook) {
+  this.locationId = locationId;
   this.location = location;
   this.minCust = minCust;
   this.maxCust = maxCust;
@@ -35,36 +36,47 @@ function Store(location, minCust, maxCust, avgCook) {
     }
   }
   this.createUl = function() {
+
+    var newDiv = document.createElement('div');
+    newDiv.setAttribute('id', this.locationId);
+    var newH1 = document.createElement('h1');
+    newH1.textContent = this.location;
+    newDiv.appendChild(newH1);
+
     var newUl = document.createElement('ul');
-    newUl.setAttribute('id', this.location)
+    newUl.setAttribute('id', this.locationId);
+
     for (var i = 0; i < storeHours.length - 1; i++) {
       var li = document.createElement('li');
       li.textContent = 'At ' + storeHours[i] + ' we sold ' + this.cookiesSold[i] + '.';
       newUl.appendChild(li);
     }
+
     var totalHere = document.createElement('li');
     totalHere.textContent = 'Total cookies sold: ' + this.totalCookies();
     newUl.appendChild(totalHere);
-    root.appendChild(newUl);
+    newDiv.appendChild(newUl);
+    root.appendChild(newDiv);
+
   }
 }
 
-var Seattle = new Store('Seattle', 23, 65, 6.3);
+var Seattle = new Store('seattle', 'Seattle', 23, 65, 6.3);
 Seattle.fillCookies();
 Seattle.createUl();
 
-var Tokyo = new Store('Tokyo', 3, 24, 1.2);
+var Tokyo = new Store('tokyo', 'Tokyo', 3, 24, 1.2);
 Tokyo.fillCookies();
 Tokyo.createUl();
 
-var Dubai = new Store('Dubai', 11, 38, 3.7);
+var Dubai = new Store('dubai', 'Dubai', 11, 38, 3.7);
 Dubai.fillCookies();
 Dubai.createUl();
 
-var Paris = new Store('Paris', 20, 38, 2.3);
+var Paris = new Store('paris', 'Paris', 20, 38, 2.3);
 Paris.fillCookies();
-Dubai.createUl();
+Paris.createUl();
 
-var Lima = new Store('Lima', 2, 16, 4.6);
+var Lima = new Store('lima', 'Lima', 2, 16, 4.6);
 Lima.fillCookies();
-Dubai.createUl();
+Lima.createUl();
