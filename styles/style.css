@@ -10,9 +10,14 @@ body {
   color: #36342C;
 }
 
+strong {
+  font-weight: 500;
+  color: black;
+}
+
 header {
   min-height: 100px;
-  background-color: #C6915D;
+  background-color: #BC543B;
 }
 
 a {
@@ -44,9 +49,34 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Lobster', cursive;
 }
 
-#root div h2 {
+h2 {
   font-size: 2rem;
   margin-bottom: 10px;
+}
+
+#information {
+  background-color: #A46846;
+  padding: 15px;
+}
+
+aside {
+  width: 49%;
+  box-sizing: border-box;
+  float: left;
+  background-color: #C6915D;
+  padding: 10px;
+}
+
+aside p {
+  margin-bottom: 10px;
+}
+
+#left {
+  margin-right: .7%;
+}
+
+#right {
+  margin-left: .7%;
 }
 
 img {
