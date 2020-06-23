@@ -39,21 +39,25 @@ function Store(locationId, location, minCust, maxCust, avgCook) {
 
     var newDiv = document.createElement('div');
     newDiv.setAttribute('id', this.locationId);
+    newDiv.setAttribute('class', 'sales-sheet');
     var newH2 = document.createElement('h2');
     newH2.textContent = this.location;
     newDiv.appendChild(newH2);
 
     var newUl = document.createElement('ul');
     newUl.setAttribute('id', this.locationId);
+    newUl.setAttribute('class', 'sales-sheet');
 
     for (var i = 0; i < storeHours.length - 1; i++) {
       var li = document.createElement('li');
-      li.textContent = 'At ' + storeHours[i] + ' we sold ' + this.cookiesSold[i] + ' cookies.';
+      li.textContent = storeHours[i] + ': ' + this.cookiesSold[i] + ' cookies sold';
       newUl.appendChild(li);
     }
 
     var totalHere = document.createElement('li');
-    totalHere.textContent = 'Total cookies sold in ' + this.location + ': ' + this.totalCookies();
+    var bigText = document.createElement('strong');
+    bigText.textContent = 'Total cookies sold in ' + this.location + ': ' + this.totalCookies();
+    totalHere.appendChild(bigText);
     newUl.appendChild(totalHere);
     newDiv.appendChild(newUl);
     root.appendChild(newDiv);
@@ -80,3 +84,7 @@ Paris.createUl();
 var Lima = new Store('lima', 'Lima', 2, 16, 4.6);
 Lima.fillCookies();
 Lima.createUl();
+
+var HongKong = new Store('hong-kong', 'Hong Kong', 14, 72, 8.2);
+HongKong.fillCookies();
+HongKong.createUl();
