@@ -89,19 +89,14 @@ img {
   cursor: default;
 }
 
-table {
-  background-color: #A46846;
-  padding: 15px;
-  border-radius: 15px;
-  box-shadow: 10px 10px 20px #36342C;
-}
-
 table * {
   padding: 15px;
 }
 
-table tfoot {
-  padding: 20px;
+table {
+  background-color: #A46846;
+  border-radius: 15px;
+  box-shadow: 10px 10px 20px #36342C;
 }
 
 th {
@@ -110,7 +105,6 @@ th {
 
 tr {
   background-color: #C6915D;
-  padding: 15px;
   width: 350px;
   font-weight: 500;
 }
