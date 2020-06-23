@@ -6,6 +6,29 @@ function randomNumber(minHourCus, maxHourCus) {
   return Math.floor(Math.random() * (maxHourCus - minHourCus + 1)) + minHourCus;
 }
 
+function Store(location, minCust, maxCust, avgCook) {
+  this.location = location;
+  this.minCust = minCust;
+  this.maxCust = maxCust;
+  this.avgCook = avgCook;
+  this.custPerHour = 0;
+  this.setCusPerHour = function() {
+    this.custPerHour = randomNumber(this.minCust, this.maxCust);
+  };
+  this.cookiesSold = [];
+  this.setCookiesSold = function() {
+    this.setCusPerHour();
+    this.cookiesSold.push(Math.floor(this.custPerHour * this.avgCook));
+  };
+  this.totalCookies = function() {
+    var cookies = 0;
+    for(var i = 0; i < this.cookiesSold.length; i++) {
+      cookies = cookies + this.cookiesSold[i];
+    }
+    return cookies;
+  }
+}
+
 var Seattle = {
   minCust: 23,
   maxCust: 65,
