@@ -1,0 +1,58 @@
+/* Colors include: #BC543B 'Old Rose', #C6915D 'Peru', #A46846 'Sienna', #36342C 'Black', #D0C9C2 'Silver' */
+/* Font-family for text: font-family: 'Tillana', cursive; */
+/* Font-family for headings: font-family: 'Lobster', cursive; */
+
+body {
+  background-color: #D0C9C2;
+  text-align: center;
+  font-size: 20px;
+  font-family: 'Tillana', cursive;
+  color: #36342C;
+}
+
+header {
+  min-height: 100px;
+  background-color: #C6915D;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  color: black;
+}
+
+#root {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#root div {
+  font-size: 1.2rem;
+  margin: 15px 20px;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lobster', cursive;
+}
+
+#root div h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+img {
+  width: 200px;
+}
+
+#salmon-image:hover {
+  cursor: default;
+}
