@@ -39,9 +39,9 @@ function Store(locationId, location, minCust, maxCust, avgCook) {
 
     var newDiv = document.createElement('div');
     newDiv.setAttribute('id', this.locationId);
-    var newH1 = document.createElement('h1');
-    newH1.textContent = this.location;
-    newDiv.appendChild(newH1);
+    var newH2 = document.createElement('h2');
+    newH2.textContent = this.location;
+    newDiv.appendChild(newH2);
 
     var newUl = document.createElement('ul');
     newUl.setAttribute('id', this.locationId);
