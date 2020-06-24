@@ -42,9 +42,8 @@ var Tokyo = new Store('tokyo', 'Tokyo', 3, 24, 1.2);
 var Dubai = new Store('dubai', 'Dubai', 11, 38, 3.7);
 var Paris = new Store('paris', 'Paris', 20, 38, 2.3);
 var Lima = new Store('lima', 'Lima', 2, 16, 4.6);
-var HongKong = new Store('hong-kong', 'Hong Kong', 14, 72, 8.2);
 
-var stores = [Seattle, Tokyo, Dubai, Paris, Lima, HongKong];
+var stores = [Seattle, Tokyo, Dubai, Paris, Lima];
 
 stores.forEach(store => {
   store.fillCookies();
