@@ -10,7 +10,11 @@ footer.appendChild(h5);
 var span1 = document.createElement('span');
 span1.textContent = '199-555-1259';
 var span2 = document.createElement('span');
-span2.textContent = 'salmoncookiesrus@email.com';
+var aTag = document.createElement('a');
+aTag.setAttribute('href', 'mailto:salmoncookiesrus@email.com');
+aTag.setAttribute('id', 'footer-email');
+aTag.textContent = 'salmoncookiesrus@email.com';
+span2.appendChild(aTag);
 var span3 = document.createElement('span');
 span3.textContent = '12345 Fishy Rd Salmonville, Washington 80808';
 
