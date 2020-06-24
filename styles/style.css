@@ -125,3 +125,13 @@ footer {
 footer span {
   margin: 50px;
 }
+
+.location {
+  color: black;
+  text-decoration: underline;
+}
+
+.location:hover {
+  color: white;
+  text-decoration: none;
+}
