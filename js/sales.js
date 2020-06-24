@@ -42,9 +42,8 @@ var Tokyo = new Store('tokyo', 'Tokyo', 3, 24, 1.2);
 var Dubai = new Store('dubai', 'Dubai', 11, 38, 3.7);
 var Paris = new Store('paris', 'Paris', 20, 38, 2.3);
 var Lima = new Store('lima', 'Lima', 2, 16, 4.6);
-var HongKong = new Store('hong-kong', 'Hong Kong', 14, 72, 8.2);
 
-var stores = [Seattle, Tokyo, Dubai, Paris, Lima, HongKong];
+var stores = [Seattle, Tokyo, Dubai, Paris, Lima];
 
 stores.forEach(store => {
   store.fillCookies();
@@ -88,7 +87,11 @@ function createTable() {
   for(var i = 0; i < stores.length; i++) {
     var tr = document.createElement('tr');
     tr.setAttribute('id', stores[i].locationId);
-    tr.textContent = stores[i].location;
+    var newATag = document.createElement('a');
+    newATag.setAttribute('href', `locPages/${stores[i].locationId}.html`);
+    newATag.setAttribute('class', 'location');
+    newATag.textContent = stores[i].location;
+    tr.appendChild(newATag);
     tableBody.appendChild(tr);
     // Adding sales for each hour at each store
     for(var j = 0; j < storeHours.length; j++) {
