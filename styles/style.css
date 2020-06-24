@@ -112,3 +112,16 @@ tr {
 tr td {
   font-weight: normal;
 }
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #B6814D;
+  height: 40px;
+  padding: 10px 0;
+}
+
+footer span {
+  margin: 50px;
+}
