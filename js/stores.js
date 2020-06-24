@@ -56,11 +56,27 @@ var limaDiv = document.getElementById('lima-div');
 var locDivs = [seattleDiv, tokyoDiv, dubaiDiv, parisDiv, limaDiv];
 
 for(var i = 0; i < locDivs.length; i++) {
-  if(locDivs[i]) {
+  if(locDivs[i] !== null) {
+    var h2 = document.createElement('h2');
+    h2.textContent = stores[i].location;
+    locDivs[i].appendChild(h2);
+    
+    var ul = document.createElement('ul');
+    ul.setAttribute('class', 'sales-sheet');
+    locDivs[i].appendChild(ul);
+
     for(var j = 0; j < storeHours.length; j++) {
       var li = document.createElement('li');
-      li.textContent = `We sold ${stores[i].cookiesSold[j]} at ${storeHours[j]}`;
-      locDivs[i].appendChild(li);
+      li.textContent = `We sold ${stores[i].cookiesSold[j]} cookies at ${storeHours[j]}`;
+      ul.appendChild(li);
     }
+    
+    var liTotal = document.createElement('li');
+    var strong = document.createElement('strong')
+    strong.textContent = `Today we sold ${stores[i].totalCookies()} cookies!`;
+    liTotal.appendChild(strong);
+    liTotal.setAttribute('style', 'margin-top: 5px;');
+    ul.appendChild(liTotal);
+    ul.setAttribute('style', 'line-height: 1.2;');
   }
 }
